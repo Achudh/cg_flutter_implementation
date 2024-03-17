@@ -45,6 +45,9 @@ class ContactsList extends ConsumerWidget {
                       ),
                       subtitle: RichText(
                         text: TextSpan(
+                          style: TextStyle(
+                            color: Colors.grey.shade700,
+                          ),
                           children: [
                             highlightText(contact.email, searchQuery, false)
                           ],
