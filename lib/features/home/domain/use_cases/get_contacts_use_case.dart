@@ -1,7 +1,7 @@
 import "dart:developer";
 
 import "package:cg_flutter_implementation/features/home/domain/entities/contacts.dart";
-import "package:cg_flutter_implementation/features/home/domain/repository/contacts_repository.dart";
+import "package:cg_flutter_implementation/features/home/data/repository/contacts_repository.dart";
 import "package:cg_flutter_implementation/features/home/domain/use_cases/contacts_use_case.dart";
 
 class GetContactsUseCase implements ContactsUseCase {

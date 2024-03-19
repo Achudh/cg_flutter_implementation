@@ -1,4 +1,4 @@
-import "package:cg_flutter_implementation/features/auth/presentation/pages/login_page.dart";
+import "package:cg_flutter_implementation/features/home/presentation/pages/home.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 
@@ -27,9 +27,12 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: "Flutter Demo",
       theme: ThemeData(
-        useMaterial3: false,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF91C2D6),
+        ),
+        useMaterial3: true,
       ),
-      home: LoginPage(),
+      home: const Home(),
     );
   }
 }

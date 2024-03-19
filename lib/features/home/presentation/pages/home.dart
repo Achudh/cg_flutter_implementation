@@ -1,88 +1,54 @@
-import "package:cg_flutter_implementation/features/home/domain/repository/providers.dart";
-import "package:cg_flutter_implementation/features/home/presentation/widgets/contacts_list.dart";
+import "package:cg_flutter_implementation/features/home/presentation/pages/code_review.dart";
+import "package:cg_flutter_implementation/features/home/presentation/pages/contacts.dart";
+import "package:cg_flutter_implementation/features/home/presentation/pages/custom_widget.dart";
 import "package:flutter/material.dart";
-import "package:flutter_riverpod/flutter_riverpod.dart";
 
-class Home extends ConsumerWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final searchQueryNotifier = ref.read(searchQueryProvider.notifier);
+  State<Home> createState() => _HomeState();
+}
 
-    TextEditingController searchTextEditingContoller = TextEditingController();
-
+class _HomeState extends State<Home> {
+  int _selectedIndex = 1;
+  final pages = [
+    const Contacts(),
+    const CustomWidget(),
+    const CodeReview(),
+  ];
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
-        elevation: 1,
-        bottom: PreferredSize(
-          preferredSize: const Size(double.maxFinite, 50),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 20,
+      body: pages[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: (value) {
+          setState(() {
+            _selectedIndex = value;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.contacts,
             ),
-            child: SearchBar(
-              controller: searchTextEditingContoller,
-              autoFocus: true,
-              onChanged: (value) =>
-                  searchQueryNotifier.update((state) => value),
-              elevation: const MaterialStatePropertyAll(0),
-              hintText: "Search...",
-              leading: const Icon(
-                Icons.search,
-              ),
-              trailing: [
-                CircleAvatar(
-                  radius: 15,
-                  backgroundColor: Colors.grey.shade300,
-                  child: IconButton(
-                    onPressed: () {
-                      searchTextEditingContoller.clear();
-                      searchQueryNotifier.update((state) => "");
-                    },
-                    icon: Icon(
-                      Icons.close,
-                      size: 15,
-                      color: Colors.grey.shade700,
-                    ),
-                  ),
-                )
-              ],
-              padding: const MaterialStatePropertyAll(
-                EdgeInsets.symmetric(
-                  vertical: 8,
-                  horizontal: 10,
-                ),
-              ),
-              hintStyle: const MaterialStatePropertyAll(
-                TextStyle(
-                  color: Colors.grey,
-                ),
-              ),
-              backgroundColor: const MaterialStatePropertyAll(
-                Color(0xFFE8F4F6),
-              ),
-              shape: const MaterialStatePropertyAll(
-                RoundedRectangleBorder(
-                  side: BorderSide(
-                    color: Colors.white,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(
-                      20,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            label: "Contacts",
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.widgets,
+            ),
+            label: "Custom widget",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.code,
+            ),
+            label: "Code review",
+          ),
+        ],
       ),
-      backgroundColor: const Color(0xFFF2F2F2),
-      body: const ContactsList(),
     );
   }
 }
