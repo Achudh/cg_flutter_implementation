@@ -11,7 +11,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
   final pages = [
     const Contacts(),
     const CustomWidget(),

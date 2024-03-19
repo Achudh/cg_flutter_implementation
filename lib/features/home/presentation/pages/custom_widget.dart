@@ -36,6 +36,7 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
         child: Container(
           padding: const EdgeInsets.all(20),
           height: 270,
+          width: MediaQuery.of(context).size.width - 80,
           child: Material(
             elevation: 2,
             borderRadius: BorderRadius.circular(10),
@@ -97,72 +98,16 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
                         ),
                         totalValue: 100,
                         initialAngleInDegree: -90,
-                        chartRadius: MediaQuery.of(context).size.width / 3.5,
+                        chartRadius: 150,
                         colorList: colorList,
                       ),
                       SizedBox(
                         height: 150,
                         width: 170,
-                        child: ListView.builder(
-                          itemCount: dataInPercentage.length,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemBuilder: (BuildContext context, int index) {
-                            return Card(
-                              margin: const EdgeInsets.all(5),
-                              color: Colors.transparent,
-                              elevation: 0,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  SizedBox(
-                                    width: 60,
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          height: 10,
-                                          width: 10,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            color: colorList[index],
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text(
-                                          dataMap.keys.elementAt(index),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      Text(
-                                        dataMap.values
-                                            .elementAt(index)
-                                            .toString(),
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        width: 13,
-                                      ),
-                                      Text(
-                                        "${dataInPercentage.values.elementAt(index)}%",
-                                        style: TextStyle(
-                                          color: Colors.blueGrey.shade400,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
+                        child: Legends(
+                          dataInPercentage: dataInPercentage,
+                          colorList: colorList,
+                          dataMap: dataMap,
                         ),
                       )
                     ],
@@ -172,6 +117,83 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class Legends extends StatelessWidget {
+  const Legends({
+    required this.dataInPercentage,
+    required this.colorList,
+    required this.dataMap,
+    super.key,
+  });
+
+  final Map<String, double> dataInPercentage;
+  final List<Color> colorList;
+  final Map<String, double> dataMap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ListView.builder(
+        itemCount: dataInPercentage.length,
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemBuilder: (BuildContext context, int index) {
+          return Card(
+            margin: const EdgeInsets.all(5),
+            color: Colors.transparent,
+            elevation: 0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: 60,
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 10,
+                        width: 10,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: colorList[index],
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        dataMap.keys.elementAt(index),
+                      )
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      dataMap.values.elementAt(index).toString(),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 13,
+                    ),
+                    Text(
+                      "${dataInPercentage.values.elementAt(index)}%",
+                      style: TextStyle(
+                        color: Colors.blueGrey.shade400,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

@@ -4,7 +4,7 @@ import "dart:ui";
 
 import "package:cg_flutter_implementation/core/utils/input_validator.dart";
 import "package:cg_flutter_implementation/features/auth/presentation/providers/auth_provider.dart";
-import "package:cg_flutter_implementation/features/home/presentation/pages/home.dart";
+import "package:cg_flutter_implementation/features/home/presentation/home.dart";
 import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";

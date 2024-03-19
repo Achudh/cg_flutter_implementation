@@ -1,4 +1,4 @@
-import "package:cg_flutter_implementation/features/home/domain/repository/providers.dart";
+import "package:cg_flutter_implementation/features/home/presentation/providers/providers.dart";
 import "package:cg_flutter_implementation/features/home/presentation/widgets/contacts_list.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
@@ -32,6 +32,7 @@ class Contacts extends ConsumerWidget {
               hintText: "Search...",
               leading: const Icon(
                 Icons.search,
+                color: Colors.blueGrey,
               ),
               trailing: [
                 CircleAvatar(

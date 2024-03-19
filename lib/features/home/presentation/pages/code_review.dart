@@ -9,6 +9,7 @@ class CodeReview extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Code Review"),
         centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
       body: const Column(
         children: [

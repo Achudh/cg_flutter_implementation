@@ -1,7 +1,7 @@
 import "dart:convert";
 import "dart:developer";
 
-import "package:cg_flutter_implementation/features/home/domain/entities/contacts.dart";
+import "package:cg_flutter_implementation/features/home/data/entities/contacts.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:http/http.dart" as http;
 

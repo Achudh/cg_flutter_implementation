@@ -1,8 +1,8 @@
 import "dart:developer";
 
 import "package:cg_flutter_implementation/core/utils/search_util.dart";
-import "package:cg_flutter_implementation/features/home/domain/entities/contacts.dart";
-import "package:cg_flutter_implementation/features/home/domain/repository/providers.dart";
+import "package:cg_flutter_implementation/features/home/data/entities/contacts.dart";
+import "package:cg_flutter_implementation/features/home/presentation/providers/providers.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 

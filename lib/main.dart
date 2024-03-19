@@ -1,4 +1,4 @@
-import "package:cg_flutter_implementation/features/home/presentation/pages/home.dart";
+import "package:cg_flutter_implementation/features/auth/presentation/pages/login_page.dart";
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 
@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
         ),
         useMaterial3: true,
       ),
-      home: const Home(),
+      home: LoginPage(),
     );
   }
 }
