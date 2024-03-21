@@ -1,8 +1,8 @@
-import "dart:developer";
+import 'dart:developer';
 
-import "package:flutter/material.dart";
-import "package:flutter_riverpod/flutter_riverpod.dart";
-import "package:pie_chart/pie_chart.dart";
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pie_chart/pie_chart.dart';
 
 class CustomWidget extends ConsumerStatefulWidget {
   const CustomWidget({super.key});
@@ -15,9 +15,9 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
   @override
   Widget build(BuildContext context) {
     const Map<String, double> dataMap = {
-      "Cold": 45,
-      "Warm": 45,
-      "Hot": 90,
+      'Cold': 45,
+      'Warm': 45,
+      'Hot': 90,
     };
     final double sum = dataMap.values.fold(0.0, (sum, value) => sum + value);
     Map<String, double> dataInPercentage = {};
@@ -50,7 +50,7 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Prospect by Status",
+                    'Prospect by Status',
                     style: TextStyle(
                       color: Colors.grey.shade900,
                       fontSize: 25,
@@ -79,7 +79,7 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
                               ),
                             ),
                             Text(
-                              "Total Prospects",
+                              'Total Prospects',
                               style: TextStyle(
                                 color: Colors.blueGrey.shade400,
                                 fontWeight: FontWeight.bold,
@@ -182,7 +182,7 @@ class Legends extends StatelessWidget {
                       width: 13,
                     ),
                     Text(
-                      "${dataInPercentage.values.elementAt(index)}%",
+                      '${dataInPercentage.values.elementAt(index)}%',
                       style: TextStyle(
                         color: Colors.blueGrey.shade400,
                         fontWeight: FontWeight.bold,

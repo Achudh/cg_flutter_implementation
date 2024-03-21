@@ -1,13 +1,13 @@
 // ignore_for_file: use_build_context_synchronously
 
-import "dart:ui";
+import 'dart:ui';
 
-import "package:cg_flutter_implementation/core/utils/input_validator.dart";
-import "package:cg_flutter_implementation/features/auth/presentation/providers/auth_provider.dart";
-import "package:cg_flutter_implementation/features/home/presentation/home.dart";
-import "package:flutter/foundation.dart";
-import "package:flutter/material.dart";
-import "package:flutter_riverpod/flutter_riverpod.dart";
+import 'package:cg_flutter_implementation/core/utils/input_validator.dart';
+import 'package:cg_flutter_implementation/features/auth/presentation/providers/auth_provider.dart';
+import 'package:cg_flutter_implementation/features/home/presentation/home.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class LoginPage extends ConsumerWidget {
   LoginPage({super.key});
@@ -75,7 +75,7 @@ class LoginPage extends ConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        "Welcome to Flutter",
+                        'Welcome to Flutter',
                         style: TextStyle(
                           color: Colors.grey.shade800,
                           fontSize: 20,
@@ -91,7 +91,7 @@ class LoginPage extends ConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        "Please enter your details to continue",
+                        'Please enter your details to continue',
                         style: TextStyle(
                           color: Colors.grey.shade700,
                         ),
@@ -105,7 +105,7 @@ class LoginPage extends ConsumerWidget {
                     decoration: const InputDecoration(
                       fillColor: Colors.white,
                       filled: true,
-                      labelText: "User Name",
+                      labelText: 'User Name',
                     ),
                     textInputAction: TextInputAction.next,
                     onChanged: (value) {
@@ -116,7 +116,7 @@ class LoginPage extends ConsumerWidget {
                           );
                     },
                     validator: (value) =>
-                        InputValidator.simpleValidation(value, "User Name"),
+                        InputValidator.simpleValidation(value, 'User Name'),
                   ),
                   const SizedBox(
                     height: 20.0,
@@ -125,7 +125,7 @@ class LoginPage extends ConsumerWidget {
                     decoration: InputDecoration(
                       fillColor: Colors.white,
                       filled: true,
-                      labelText: "Password",
+                      labelText: 'Password',
                       suffixIcon: IconButton(
                         icon: Icon(
                           state.obscurePassword
@@ -162,7 +162,7 @@ class LoginPage extends ConsumerWidget {
                       TextButton(
                         onPressed: () {},
                         child: const Text(
-                          "Forgot Password?",
+                          'Forgot Password?',
                           style: TextStyle(
                             color: Color(0xFF42A1D4),
                             fontWeight: FontWeight.w800,
@@ -199,7 +199,7 @@ class LoginPage extends ConsumerWidget {
                               ),
                             );
                             if (kDebugMode) {
-                              print("Login successful: $user");
+                              print('Login successful: $user');
                             }
                           } on Exception catch (e) {
                             ref.read(loginStateProvider.notifier).update(
@@ -209,7 +209,7 @@ class LoginPage extends ConsumerWidget {
                         }
                       },
                       child: const Text(
-                        "Login",
+                        'Login',
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w900,

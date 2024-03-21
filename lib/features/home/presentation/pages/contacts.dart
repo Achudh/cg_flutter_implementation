@@ -1,7 +1,7 @@
-import "package:cg_flutter_implementation/features/home/presentation/providers/providers.dart";
-import "package:cg_flutter_implementation/features/home/presentation/widgets/contacts_list.dart";
-import "package:flutter/material.dart";
-import "package:flutter_riverpod/flutter_riverpod.dart";
+import 'package:cg_flutter_implementation/features/home/presentation/providers/providers.dart';
+import 'package:cg_flutter_implementation/features/home/presentation/widgets/contacts_list.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class Contacts extends ConsumerWidget {
   const Contacts({super.key});
@@ -29,7 +29,7 @@ class Contacts extends ConsumerWidget {
               onChanged: (value) =>
                   searchQueryNotifier.update((state) => value),
               elevation: const MaterialStatePropertyAll(0),
-              hintText: "Search...",
+              hintText: 'Search...',
               leading: const Icon(
                 Icons.search,
                 color: Colors.blueGrey,
@@ -41,7 +41,7 @@ class Contacts extends ConsumerWidget {
                   child: IconButton(
                     onPressed: () {
                       searchTextEditingContoller.clear();
-                      searchQueryNotifier.update((state) => "");
+                      searchQueryNotifier.update((state) => '');
                     },
                     icon: Icon(
                       Icons.close,

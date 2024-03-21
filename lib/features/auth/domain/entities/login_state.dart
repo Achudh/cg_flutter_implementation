@@ -1,6 +1,6 @@
-import "package:freezed_annotation/freezed_annotation.dart";
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-part "login_state.freezed.dart";
+part 'login_state.freezed.dart';
 
 @Freezed()
 class LoginState with _$LoginState {
@@ -13,8 +13,8 @@ class LoginState with _$LoginState {
   }) = _LoginState;
 
   factory LoginState.initial() => const LoginState(
-        username: "",
-        password: "",
+        username: '',
+        password: '',
         isLoading: false,
         obscurePassword: true,
         error: null,

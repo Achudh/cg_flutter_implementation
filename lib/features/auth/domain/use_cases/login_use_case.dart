@@ -1,4 +1,4 @@
-import "package:cg_flutter_implementation/features/auth/domain/repository/auth_repository.dart";
+import 'package:cg_flutter_implementation/features/auth/domain/repository/auth_repository.dart';
 
 class LoginUseCase {
   LoginUseCase(this.repository);

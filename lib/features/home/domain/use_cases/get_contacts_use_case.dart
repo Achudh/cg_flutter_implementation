@@ -1,8 +1,8 @@
-import "dart:developer";
+import 'dart:developer';
 
-import "package:cg_flutter_implementation/features/home/data/entities/contacts.dart";
-import "package:cg_flutter_implementation/features/home/data/repository/contacts_repository.dart";
-import "package:cg_flutter_implementation/features/home/domain/use_cases/contacts_use_case.dart";
+import 'package:cg_flutter_implementation/features/home/data/entities/contacts.dart';
+import 'package:cg_flutter_implementation/features/home/data/repository/contacts_repository.dart';
+import 'package:cg_flutter_implementation/features/home/domain/use_cases/contacts_use_case.dart';
 
 class GetContactsUseCase implements ContactsUseCase {
   GetContactsUseCase(this.repository);
@@ -15,8 +15,8 @@ class GetContactsUseCase implements ContactsUseCase {
       return contacts;
     } on Exception catch (error) {
       // Handle errors gracefully (e.g., logging, user feedback)
-      log("Error fetching contacts: $error");
-      throw Exception("Failed to fetch contacts"); // Re-throw for UI handling
+      log('Error fetching contacts: $error');
+      throw Exception('Failed to fetch contacts'); // Re-throw for UI handling
     }
   }
 }

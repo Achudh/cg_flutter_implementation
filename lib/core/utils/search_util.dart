@@ -1,10 +1,10 @@
-import "dart:developer";
+import 'dart:developer';
 
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
 TextSpan highlightText(String? text, String? searchQuery, bool isName) {
-  log("searchQuery $searchQuery");
-  if (text == null || searchQuery == null) return const TextSpan(text: "");
+  log('searchQuery $searchQuery');
+  if (text == null || searchQuery == null) return const TextSpan(text: '');
   if (searchQuery.isEmpty) return TextSpan(text: text);
   final lowerText = text.toLowerCase();
   final lowerSearchQuery = searchQuery.toLowerCase();

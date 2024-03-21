@@ -1,10 +1,10 @@
-import "dart:developer";
+import 'dart:developer';
 
-import "package:cg_flutter_implementation/core/utils/search_util.dart";
-import "package:cg_flutter_implementation/features/home/data/entities/contacts.dart";
-import "package:cg_flutter_implementation/features/home/presentation/providers/providers.dart";
-import "package:flutter/material.dart";
-import "package:flutter_riverpod/flutter_riverpod.dart";
+import 'package:cg_flutter_implementation/core/utils/search_util.dart';
+import 'package:cg_flutter_implementation/features/home/data/entities/contacts.dart';
+import 'package:cg_flutter_implementation/features/home/presentation/providers/providers.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ContactsList extends ConsumerWidget {
   const ContactsList({super.key});
@@ -23,7 +23,7 @@ class ContactsList extends ConsumerWidget {
           );
         }
         if (con.isEmpty) {
-          return const Center(child: Text("No contact found"));
+          return const Center(child: Text('No contact found'));
         }
         return ListView.builder(
           itemCount: con.length,
@@ -85,7 +85,7 @@ class ContactsList extends ConsumerWidget {
                         ),
                         child: Center(
                           child: Text(
-                            contact.name[0] + contact.name.split(" ").last[0],
+                            contact.name[0] + contact.name.split(' ').last[0],
                             style: const TextStyle(
                               fontSize: 25,
                               color: Colors.white,
@@ -110,13 +110,13 @@ class ContactsList extends ConsumerWidget {
         );
       },
       error: (error, stackTrace) {
-        log("Error occured: $error", error: error, stackTrace: stackTrace);
+        log('Error occured: $error', error: error, stackTrace: stackTrace);
         return const Center(
-          child: Text("Error"),
+          child: Text('Error'),
         );
       },
       loading: () {
-        log("Loading");
+        log('Loading');
         return const Center(
           child: CircularProgressIndicator(),
         );

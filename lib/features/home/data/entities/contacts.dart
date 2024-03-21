@@ -1,7 +1,7 @@
-import "package:freezed_annotation/freezed_annotation.dart";
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-part "contacts.freezed.dart";
-part "contacts.g.dart";
+part 'contacts.freezed.dart';
+part 'contacts.g.dart';
 
 @Freezed(
   copyWith: true,
@@ -15,7 +15,7 @@ class Contact with _$Contact {
     required String email,
   }) = _Contact;
 
-  factory Contact.initial() => const Contact(id: "", name: "", email: "");
+  factory Contact.initial() => const Contact(id: '', name: '', email: '');
   factory Contact.fromJson(Map<String, dynamic> json) =>
       _$$ContactImplFromJson(json);
 }

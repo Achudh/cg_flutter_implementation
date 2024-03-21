@@ -1,7 +1,7 @@
-import "package:cg_flutter_implementation/features/home/presentation/pages/code_review.dart";
-import "package:cg_flutter_implementation/features/home/presentation/pages/contacts.dart";
-import "package:cg_flutter_implementation/features/home/presentation/pages/custom_widget.dart";
-import "package:flutter/material.dart";
+import 'package:cg_flutter_implementation/features/home/presentation/pages/code_review.dart';
+import 'package:cg_flutter_implementation/features/home/presentation/pages/contacts.dart';
+import 'package:cg_flutter_implementation/features/home/presentation/pages/custom_widget.dart';
+import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -33,19 +33,19 @@ class _HomeState extends State<Home> {
             icon: Icon(
               Icons.contacts,
             ),
-            label: "Contacts",
+            label: 'Contacts',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.widgets,
             ),
-            label: "Custom widget",
+            label: 'Custom widget',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.code,
             ),
-            label: "Code review",
+            label: 'Code review',
           ),
         ],
       ),
