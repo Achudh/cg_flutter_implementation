@@ -15,8 +15,8 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
   @override
   Widget build(BuildContext context) {
     const Map<String, double> dataMap = {
-      'Cold': 45,
-      'Warm': 45,
+      'Cold': 35,
+      'Warm': 35,
       'Hot': 90,
     };
     final double sum = dataMap.values.fold(0.0, (sum, value) => sum + value);
@@ -36,7 +36,7 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
         child: Container(
           padding: const EdgeInsets.all(20),
           height: 270,
-          width: MediaQuery.of(context).size.width - 80,
+          width: MediaQuery.of(context).size.width - 75,
           child: Material(
             elevation: 2,
             borderRadius: BorderRadius.circular(10),
@@ -103,7 +103,7 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
                       ),
                       SizedBox(
                         height: 150,
-                        width: 170,
+                        width: 175,
                         child: Legends(
                           dataInPercentage: dataInPercentage,
                           colorList: colorList,
@@ -150,7 +150,7 @@ class Legends extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 60,
+                  width: 65,
                   child: Row(
                     children: [
                       Container(
@@ -182,7 +182,7 @@ class Legends extends StatelessWidget {
                       width: 13,
                     ),
                     Text(
-                      '${dataInPercentage.values.elementAt(index)}%',
+                      '${dataInPercentage.values.elementAt(index).round()}%',
                       style: TextStyle(
                         color: Colors.blueGrey.shade400,
                         fontWeight: FontWeight.bold,
