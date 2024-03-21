@@ -42,6 +42,7 @@ dependencies:
   mockito: ^5.4.4
   hooks_riverpod: ^2.5.1
   matcher: ^0.12.16+1
+  google_fonts: ^6.2.1
   # fl_chart: ^0.66.2
 dev_dependencies:
   flutter_test:

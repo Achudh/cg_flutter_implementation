@@ -1,6 +1,7 @@
 import 'package:cg_flutter_implementation/features/auth/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(
@@ -25,8 +26,11 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       navigatorKey: navigationKey,
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'CG Flutter Implementation',
       theme: ThemeData(
+        textTheme: GoogleFonts.poppinsTextTheme(
+          Theme.of(context).textTheme,
+        ),
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xFF91C2D6),
         ),
