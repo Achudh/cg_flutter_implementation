@@ -30,12 +30,13 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
       Colors.orange,
       Colors.red,
     ];
+    bool isScreenWide = MediaQuery.sizeOf(context).width >= 496;
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       body: Center(
         child: Container(
           padding: const EdgeInsets.all(20),
-          height: 270,
+          height: isScreenWide ? 270 : 500,
           width: MediaQuery.of(context).size.width - 75,
           child: Material(
             elevation: 2,
@@ -57,7 +58,8 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Row(
+                  Flex(
+                    direction: isScreenWide ? Axis.horizontal : Axis.vertical,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -136,21 +138,26 @@ class Legends extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isScreenWide = MediaQuery.sizeOf(context).width >= 496;
+    log('width: ${MediaQuery.sizeOf(context).width.toString()}');
     return Center(
       child: ListView.builder(
         itemCount: dataInPercentage.length,
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
+        clipBehavior: Clip.antiAliasWithSaveLayer,
         itemBuilder: (BuildContext context, int index) {
           return Card(
             margin: const EdgeInsets.all(5),
             color: Colors.transparent,
             elevation: 0,
-            child: Row(
+            child: Flex(
+              direction: isScreenWide ? Axis.horizontal : Axis.vertical,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(
-                  width: 65,
+                  width: 75,
                   child: Row(
                     children: [
                       Container(
@@ -162,7 +169,7 @@ class Legends extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 10,
+                        width: 8,
                       ),
                       Text(
                         dataMap.keys.elementAt(index),
@@ -171,6 +178,7 @@ class Legends extends StatelessWidget {
                   ),
                 ),
                 Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
                       dataMap.values.elementAt(index).toString(),

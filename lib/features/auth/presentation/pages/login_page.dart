@@ -102,6 +102,7 @@ class LoginPage extends ConsumerWidget {
                     height: 30,
                   ),
                   TextFormField(
+                    key: const Key('Username'),
                     decoration: const InputDecoration(
                       fillColor: Colors.white,
                       filled: true,
@@ -122,6 +123,7 @@ class LoginPage extends ConsumerWidget {
                     height: 20.0,
                   ),
                   TextFormField(
+                    key: const Key('Password'),
                     decoration: InputDecoration(
                       fillColor: Colors.white,
                       filled: true,
@@ -160,6 +162,7 @@ class LoginPage extends ConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       TextButton(
+                        key: const Key('ForgotPassword'),
                         onPressed: () {},
                         child: const Text(
                           'Forgot Password?',
@@ -178,6 +181,7 @@ class LoginPage extends ConsumerWidget {
                     const CircularProgressIndicator()
                   else
                     MaterialButton(
+                      key: const Key('Login'),
                       color: const Color(0xFF77D6FC),
                       minWidth: double.maxFinite,
                       height: 50,
