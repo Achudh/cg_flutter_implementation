@@ -5,19 +5,19 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "mathello_count",
+      "name": "cg_flutter_implementation",
       "request": "launch",
-      "type": "dart",
+      "type": "dart"
       // "args": ["--web-port", "3000"]
     },
     {
-      "name": "mathello_count (profile mode)",
+      "name": "cg_flutter_implementation (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile"
     },
     {
-      "name": "mathello_count (release mode)",
+      "name": "cg_flutter_implementation (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release"
