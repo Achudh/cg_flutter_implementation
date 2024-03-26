@@ -1,3 +1,6 @@
+*/
+  Over all code must be formatted 
+/*
 class OnboardingOtpScreen extends StatefulWidget {
   OnboardingOtpScreen(
       {Key? key,
@@ -159,6 +162,9 @@ class _OnboardingOtpScreenState extends State<OnboardingOtpScreen> {
                 "${mtl("verifyEmailSuccess")} ${_sendOTPBean.email ?? ""}\n${mtl("verifyEmailSuccess2")}",
             illustration: loadSvg("pictogram/email.svg", color: null),
             positiveText: mtl("okButton"), onPressedPositive: () {
+*/
+  GoRouter is reccomended
+/*
           NUINavigator.popWithResult(context, true);
         });
         if (completed) {
@@ -166,6 +172,9 @@ class _OnboardingOtpScreenState extends State<OnboardingOtpScreen> {
         }
         return;
       } else {
+*/
+  Why delay before navigation?
+/*
         await Future.delayed(const Duration(milliseconds: 80));
         NUINavigator.popAllAndPush(context, const BaseScreen());
         return;
@@ -261,6 +270,9 @@ class _OnboardingOtpScreenState extends State<OnboardingOtpScreen> {
             backgroundColor: AppColors.BackgroundWhite,
             body: Column(
               children: [
+*/
+  For custom AppBar we can use it as flexible space or bottom under AppBar itself.
+/*
                 BackToolbar(
                   title: Text(
                     mtl("verification"),
@@ -279,11 +291,17 @@ class _OnboardingOtpScreenState extends State<OnboardingOtpScreen> {
                     }
                   },
                 ),
+*/
+  No need for Expanded when CustomAppBar is moved under AppBar
+/*
                 Expanded(
                   child: SingleChildScrollView(
                     child: Padding(
                       padding: const EdgeInsets.all(20),
                       child: Column(
+*/
+  CrossAxisAlignment.start is default and no need to specify the same.
+/*
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
