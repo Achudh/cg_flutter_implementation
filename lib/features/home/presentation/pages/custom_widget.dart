@@ -39,14 +39,14 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
       Colors.orange,
       Colors.red,
     ];
-    bool isScreenWide = MediaQuery.sizeOf(context).width >= 496;
+    bool isScreenWide = MediaQuery.sizeOf(context).width >= 400;
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       body: Center(
         child: Container(
           padding: const EdgeInsets.all(20),
           height: isScreenWide ? 270 : 500,
-          width: MediaQuery.of(context).size.width - 75,
+          width: MediaQuery.of(context).size.width - 50,
           child: Material(
             elevation: 2,
             borderRadius: BorderRadius.circular(10),
@@ -69,12 +69,14 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
                   ),
                   Flex(
                     direction: isScreenWide ? Axis.horizontal : Axis.vertical,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: isScreenWide
+                        ? MainAxisAlignment.spaceBetween
+                        : MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       PieChart(
                         dataMap: dataInPercentage,
-                        ringStrokeWidth: 10,
+                        ringStrokeWidth: 7,
                         chartType: ChartType.ring,
                         centerWidget: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -102,7 +104,7 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
                           ],
                         ),
                         animationDuration: const Duration(milliseconds: 800),
-                        chartLegendSpacing: 20,
+                        chartLegendSpacing: 0,
                         baseChartColor: Colors.white,
                         chartValuesOptions: const ChartValuesOptions(
                           showChartValues: false,
@@ -112,12 +114,12 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
                         ),
                         totalValue: 100,
                         initialAngleInDegree: -90,
-                        chartRadius: 150,
+                        chartRadius: 120,
                         colorList: colorList,
                       ),
                       SizedBox(
                         height: 150,
-                        width: 175,
+                        width: 145,
                         child: Legends(
                           dataInPercentage: dataInPercentage,
                           colorList: colorList,
@@ -150,71 +152,68 @@ class Legends extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isScreenWide = MediaQuery.sizeOf(context).width >= 496;
+    bool isScreenWide = MediaQuery.sizeOf(context).width >= 400;
     log('width: ${MediaQuery.sizeOf(context).width.toString()}');
-    return Center(
-      child: ListView.builder(
-        itemCount: dataInPercentage.length,
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        itemBuilder: (BuildContext context, int index) {
-          return Card(
-            margin: const EdgeInsets.all(5),
-            color: Colors.transparent,
-            elevation: 0,
-            child: Flex(
-              direction: isScreenWide ? Axis.horizontal : Axis.vertical,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(
-                  width: 75,
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 10,
-                        width: 10,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: colorList[index],
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Text(
-                        dataMap.keys.elementAt(index),
-                      )
-                    ],
-                  ),
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
+    return ListView.builder(
+      itemCount: dataInPercentage.length,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      itemBuilder: (BuildContext context, int index) {
+        return Card(
+          margin: const EdgeInsets.all(5),
+          color: Colors.transparent,
+          elevation: 0,
+          child: Flex(
+            direction: isScreenWide ? Axis.horizontal : Axis.vertical,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(
+                width: 75,
+                child: Row(
                   children: [
-                    Text(
-                      dataMap.values.elementAt(index).toString(),
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
+                    Container(
+                      height: 10,
+                      width: 10,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: colorList[index],
                       ),
                     ),
                     const SizedBox(
-                      width: 13,
+                      width: 8,
                     ),
                     Text(
-                      '${dataInPercentage.values.elementAt(index).round()}%',
-                      style: TextStyle(
-                        color: Colors.blueGrey.shade400,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                      dataMap.keys.elementAt(index),
+                    )
                   ],
                 ),
-              ],
-            ),
-          );
-        },
-      ),
+              ),
+              Row(
+                children: [
+                  Text(
+                    dataMap.values.elementAt(index).toString(),
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    '${dataInPercentage.values.elementAt(index).round()}%',
+                    style: TextStyle(
+                      color: Colors.blueGrey.shade400,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

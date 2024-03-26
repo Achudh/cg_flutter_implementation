@@ -23,6 +23,11 @@ class OnboardingOtpScreen extends StatefulWidget {
   @override
   State<OnboardingOtpScreen> createState() => _OnboardingOtpScreenState();
 }
+*/ 
+Both UserProfileBean and RegistrationBean can't be nullable.
+You need to assert if either one of the m is not null and has the data to process the OTP functionality
+Code formatting and liniting is necessary to avoid confusion and have a readable code
+/*
 
 class _OnboardingOtpScreenState extends State<OnboardingOtpScreen> {
   late RegistrationBloc _registrationBloc;

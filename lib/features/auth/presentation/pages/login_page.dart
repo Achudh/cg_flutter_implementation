@@ -42,6 +42,9 @@ class LoginPage extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  const SizedBox(
+                    height: 150,
+                  ),
                   Center(
                     child: ClipRect(
                       child: BackdropFilter(
