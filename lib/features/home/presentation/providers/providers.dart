@@ -1,5 +1,5 @@
-import 'package:cg_flutter_implementation/features/home/data/repository/contacts_repository.dart';
 import 'package:cg_flutter_implementation/features/home/data/entities/contacts.dart';
+import 'package:cg_flutter_implementation/features/home/data/repository/contacts_repository.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -28,8 +28,14 @@ final filteredContactsProvider = FutureProvider<List<Contact>>((ref) {
   }
 
   return contacts.asData!.value
-      .where((contact) =>
-          contact.name.toLowerCase().contains(searchQuery.toLowerCase()) ||
-          contact.email.toLowerCase().contains(searchQuery.toLowerCase()))
+      .where(
+        (contact) =>
+            contact.name.toLowerCase().contains(
+                  searchQuery.toLowerCase(),
+                ) ||
+            contact.email.toLowerCase().contains(
+                  searchQuery.toLowerCase(),
+                ),
+      )
       .toList();
 });

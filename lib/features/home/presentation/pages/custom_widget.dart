@@ -19,10 +19,19 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
       'Warm': 35,
       'Hot': 90,
     };
-    final double sum = dataMap.values.fold(0.0, (sum, value) => sum + value);
+    final double sum = dataMap.values.fold(
+        0.0,
+        (
+          sum,
+          value,
+        ) =>
+            sum + value);
     Map<String, double> dataInPercentage = {};
     dataMap.forEach((key, value) {
-      dataInPercentage.putIfAbsent(key, () => value / sum * 100);
+      dataInPercentage.putIfAbsent(
+        key,
+        () => value / sum * 100,
+      );
     });
     log(dataInPercentage.entries.toString());
     const List<Color> colorList = [
@@ -72,7 +81,10 @@ class _CustomWidgetState extends ConsumerState<CustomWidget> {
                           children: [
                             Text(
                               dataMap.values
-                                  .fold(0.0, (sum, value) => sum + value)
+                                  .fold(
+                                    0.0,
+                                    (sum, value) => sum + value,
+                                  )
                                   .toString(),
                               style: TextStyle(
                                 color: Colors.grey.shade900,

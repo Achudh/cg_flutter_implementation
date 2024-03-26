@@ -18,7 +18,10 @@ class Contacts extends ConsumerWidget {
         backgroundColor: Colors.white,
         elevation: 1,
         bottom: PreferredSize(
-          preferredSize: const Size(double.maxFinite, 50),
+          preferredSize: const Size(
+            double.maxFinite,
+            50,
+          ),
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 16.0,
@@ -26,9 +29,12 @@ class Contacts extends ConsumerWidget {
             ),
             child: SearchBar(
               controller: searchTextEditingContoller,
-              onChanged: (value) =>
-                  searchQueryNotifier.update((state) => value),
-              elevation: const MaterialStatePropertyAll(0),
+              onChanged: (value) => searchQueryNotifier.update(
+                (state) => value,
+              ),
+              elevation: const MaterialStatePropertyAll(
+                0,
+              ),
               hintText: 'Search...',
               leading: const Icon(
                 Icons.search,
